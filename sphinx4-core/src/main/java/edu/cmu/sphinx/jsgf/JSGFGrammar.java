@@ -33,7 +33,7 @@ import edu.cmu.sphinx.util.props.PropertySheet;
 import edu.cmu.sphinx.util.props.S4String;
 
 /**
- * <h3>Defines a BNF-style grammar based on JSGF grammar rules in a file.</h3>
+ * Defines a BNF-style grammar based on JSGF grammar rules in a file.
  * 
  * 
  * The Java Speech Grammar Format (JSGF) is a BNF-style, platform-independent,
@@ -50,7 +50,7 @@ import edu.cmu.sphinx.util.props.S4String;
  * http://java.sun.com/products/java-media/speech/forDevelopers/JSGF/ </a>.
  * 
  * 
- * <h3>Example 1: "Hello World" in JSGF</h3>
+ * Example 1: "Hello World" in JSGF
  * 
  * The example below shows how a JSGF grammar that generates the sentences
  * "Hello World":
@@ -75,7 +75,7 @@ import edu.cmu.sphinx.util.props.S4String;
  * by {@link #PROP_GRAMMAR_NAME grammarName}. In this example, the grammar name
  * is "helloWorld".
  * 
- * <h3>Example 2: Command Grammar in JSGF</h3>
+ * Example 2: Command Grammar in JSGF
  * 
  * This examples shows a grammar that generates basic control commands like
  * "move a menu thanks please", "close file",
@@ -108,7 +108,7 @@ import edu.cmu.sphinx.util.props.S4String;
  * <li>a probability (e.g., "open" is more likely than the others).
  * </ul>
  * 
- * <h3>From JSGF to Grammar Graph</h3>
+ * From JSGF to Grammar Graph
  * 
  * After the JSGF grammar is read in, it is converted to a graph of words
  * representing the grammar. Lets call this the grammar graph. It is from this
@@ -125,7 +125,7 @@ import edu.cmu.sphinx.util.props.S4String;
  * 
  * <i>Figure 4: Grammar graph created from the Command grammar. </i>
  * 
- * <h3>Limitations</h3>
+ * Limitations
  * 
  * There is a known limitation with the current JSGF support. Grammars that
  * contain non-speech loops currently cause the recognizer to hang.
@@ -144,7 +144,7 @@ import edu.cmu.sphinx.util.props.S4String;
  * writer should ensure that there are no rules that could possibly match no
  * speech within a plus operator or kleene star operator.
  * 
- * <h3>Dynamic grammar behavior</h3> It is possible to modify the grammar of a
+ * Dynamic grammar behavior. It is possible to modify the grammar of a
  * running application. Some rules and notes:
  * <ul>
  * <li>Unlike a JSAPI recognizer, the JSGF Grammar only maintains one Rule
@@ -159,7 +159,7 @@ import edu.cmu.sphinx.util.props.S4String;
  * made.
  * </ul>
  * 
- * <h3>Implementation Notes</h3>
+ * Implementation Notes
  * <ol>
  * <li>All internal probabilities are maintained in LogMath log base.
  * </ol>

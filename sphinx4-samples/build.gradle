@@ -1,12 +1,24 @@
-
 description = 'Sphinx4 demo applications'
 
+repositories {
+    mavenCentral() // Add Maven Central repository
+}
+
 dependencies {
-    compile project(':sphinx4-core')
-    compile project(':sphinx4-data')
+    implementation project(':sphinx4-core')
+    implementation project(':sphinx4-data')
+    implementation group: 'org.apache.commons', name: 'commons-math3', version: '3.2'
+}
+
+configurations {
+    runtimeClasspath {
+        extendsFrom implementation
+    }
 }
 
 jar {
-    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    duplicatesStrategy = 'exclude' // Set a strategy to handle duplicate entries
+    dependsOn(':sphinx4-core:jar', ':sphinx4-data:jar')
+
+    from configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
 }
-    

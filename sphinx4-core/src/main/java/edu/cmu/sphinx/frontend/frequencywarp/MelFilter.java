@@ -30,7 +30,7 @@ package edu.cmu.sphinx.frontend.frequencywarp;
  * <p>
  * Figure 1 below shows pictorially what the other parameters mean.
  * <p>
- * <img alt="Mel filter" src="doc-files/melfilter.jpg"> <br><center><b>Figure 1: A triangular mel-filter.</b></center>
+ * <img alt="Mel filter" src="doc-files/melfilter.jpg"> <br><p style="text-align:center;"><b>Figure 1: A triangular mel-filter.</b></p>
  *
  * @see MelFrequencyFilterBank
  */

@@ -13,38 +13,49 @@ allprojects() {
 }
 
 subprojects() {
-    apply plugin: 'java'
-    apply plugin: 'maven'
-    
-    uploadArchives {
+    apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                from components.java
+                artifactId = project.name
+                version = project.version
+            }
+        }
         repositories {
-            mavenDeployer {
-                repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                    authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
+            maven {
+                url = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+                credentials {
+                    username = getRepositoryUsername()
+                    password = getRepositoryPassword()
                 }
-                snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-                    authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
+            }
+            maven {
+                url = "https://oss.sonatype.org/content/repositories/snapshots/"
+                credentials {
+                    username = getRepositoryUsername()
+                    password = getRepositoryPassword()
                 }
             }
         }
     }
-    
-    repositories() {
-         mavenCentral()
-    }
+
 
     compileJava.options.encoding = 'UTF-8'
     javadoc.options.encoding = 'UTF-8'
     sourceCompatibility = 1.7
     targetCompatibility = 1.7
 
+
     task javadocJar(type: Jar) {
-        classifier = 'javadoc'
+        archiveClassifier.set('javadoc')
         from javadoc
     }
-    
+
     task packageSources(type: Jar) {
-        classifier = 'sources'
+        archiveClassifier.set('sources')
         from sourceSets.main.allSource
     }
 

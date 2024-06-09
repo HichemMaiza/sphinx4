@@ -28,7 +28,7 @@ import edu.cmu.sphinx.util.props.*;
  * adjacent filters. Pictorially, the filter bank looks like:
  * <p>
  * <img alt="Mel filter bank" src="doc-files/melfilterbank.jpg"> <br>
- * <center><b>Figure 1: A Mel-filter bank. </b> </center>
+ * <p style="text-align:center;"><b>Figure 1: A Mel-filter bank. </b> </p>
  * <p>
  * As you might notice in the above figure, the distance at the base from the
  * center to the left edge is different from the center to the right edge.
@@ -59,7 +59,8 @@ import edu.cmu.sphinx.util.props.*;
  * help cut off the noise.
  * <p>
  * Typical values for the constants defining the filter bank are:
- * <table summary="Filter bank params" width="80%" border="1">
+ * <table style="width:80%;" border="1">
+ * <caption>Filterbank Values</caption>
  * <tr>
  * <td><b>Sample rate (Hz) </b></td>
  * <td><b>16000 </b></td>
