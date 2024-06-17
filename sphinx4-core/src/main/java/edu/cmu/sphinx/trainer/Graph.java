@@ -280,11 +280,12 @@ public class Graph {
         assert ((!isFinalNode(node)) && (!isInitialNode(node)));
         int nodePosition = nodes.indexOf(node);
         nodes.remove(nodePosition);
-        int index;
-        for (graph.startNodeIterator(), index = nodePosition;
-             graph.hasMoreNodes(); index++) {
-            nodes.add(index, graph.nextNode());
+        graph.startNodeIterator();
+        int index = nodePosition;
+        while (graph.hasMoreNodes()) {
+            nodes.add(index++, graph.nextNode());
         }
+
         for (graph.startEdgeIterator();
              graph.hasMoreEdges();) {
             addEdge(graph.nextEdge());
